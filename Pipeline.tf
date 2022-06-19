@@ -75,9 +75,6 @@ schedule {
     component_arn = aws_imagebuilder_component.InstallCW2.arn
   }
   component {
-    component_arn = data.aws_imagebuilder_component.InstallCLI.arn
-  }
-  component {
     component_arn = aws_imagebuilder_component.Test_AWS_CW.arn
   }
   component {
@@ -92,11 +89,6 @@ resource "aws_imagebuilder_component" "InstallCW2" {
   platform = "Linux"
   uri      = "s3://arimagebuildcomponents/InstallCW2.yml"
   version  = "1.0.0"
-}
-
-
-data "aws_imagebuilder_component" "InstallCLI" {
-  arn = "arn:aws:imagebuilder:us-east-2:549987867165:component/installcli/1.0.0/1"
 }
 
 resource "aws_imagebuilder_component" "TestCLI" {
